@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Project;
+use App\Http\Controllers\Api\ProjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +19,9 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::get('/projects', function () {
-    $projects = Project::all();
-    return response()->json($projects);
-});
+Route::apiResource('projects', ProjectController::class);
+// Route::get('/projects', [ProjectController::class, 'index']);
+// Route::get('/projects/{project}', [ProjectController::class, 'show']);
+// Route::post('/projects', [ProjectController::class, 'store']);
+// Route::delete('/projects/{project}', [ProjectController::class, 'destroy']);
+// Route::put('/projects/{project}', [ProjectController::class, 'update']);

@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::apiResource('projects', ProjectController::class);
+Route::apiResource('projects', ProjectController::class)->only('index');
 // Route::get('/projects', [ProjectController::class, 'index']);
 // Route::get('/projects/{project}', [ProjectController::class, 'show']);
 // Route::post('/projects', [ProjectController::class, 'store']);

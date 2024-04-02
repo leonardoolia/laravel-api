@@ -13,7 +13,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::paginate(3);;
 
         //? Cambiare percorso immagine da relativo ad assoluto
         // foreach ($projects as $project) {
@@ -35,9 +35,11 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Project $project)
+    public function show(string $id)
     {
-        //
+        $project = Project::find($id);
+        if (!$project) return response(null, 404);
+        return response()->json($project);
     }
 
     /**
